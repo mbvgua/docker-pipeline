@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desiderata | Server Status</title>
+    <style>
+        /* Base Styling */
+        :root {
+            --bg-color: #0f1113;
+            --text-primary: #e0e0e0;
+            --accent-color: #c9a063; /* Muted Gold */
+            --serif-font: "Times New Roman", Times, Baskerville, Georgia, serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--serif-font);
+            line-height: 1.8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        /* The Content Container */
+        article {
+            max-width: 650px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin: 0;
+        }
+
+        .author {
+            font-style: italic;
+            letter-spacing: 2px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* The Poem Body */
+        .content {
+            font-size: 1.25rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        p {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        /* Elegant Drop Cap for the first letter */
+        p:first-of-type::first-letter {
+            float: left;
+            font-size: 4.5rem;
+            line-height: 1;
+            padding-right: 12px;
+            color: var(--accent-color);
+            font-family: var(--serif-font);
+        }
+
+        /* Server Status Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #222;
+            font-family: sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #30d158;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(48, 209, 88, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .content { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <header>
+            <h1>Desiderata</h1>
+            <div class="author">By Max Ehrmann, 1927</div>
+        </header>
+
+        <section class="content">
+            <p>
+                Go placidly amid the noise and the haste, and remember what peace there may be in silence. As far as possible, without surrender, be on good terms with all persons. Speak your truth quietly and clearly; and listen to others, even to the dull and the ignorant; they too have their story.
+            </p>
+
+            <p>
+                Avoid loud and aggressive persons; they are vexations to the spirit. If you compare yourself with others, you may become vain or bitter, for always there will be greater and lesser persons than yourself. Enjoy your achievements as well as your plans.
+            </p>
+
+            <p>
+                Keep interested in your own career, however humble; it is a real possession in the changing fortunes of time. Exercise caution in your business affairs, for the world is full of trickery. But let this not blind you to what virtue there is; many persons strive for high ideals, and everywhere life is full of heroism.
+            </p>
+
+            <p>
+                Be yourself. Especially do not feign affection. Neither be cynical about love; for in the face of all aridity and disenchantment, it is as perennial as the grass.
+            </p>
+
+            <p>
+                Take kindly the counsel of the years, gracefully surrendering the things of youth. Nurture strength of spirit to shield you in sudden misfortune. But do not distress yourself with dark imaginings. Many fears are born of fatigue and loneliness.
+            </p>
+
+            <p>
+                Beyond a wholesome discipline, be gentle with yourself. You are a child of the universe no less than the trees and the stars; you have a right to be here. And whether or not it is clear to you, no doubt the universe is unfolding as it should.
+            </p>
+
+            <p>
+                Therefore be at peace with God, whatever you conceive Him to be. And whatever your labors and aspirations, in the noisy confusion of life, keep peace in your soul. With all its sham, drudgery, and broken dreams, it is still a beautiful world. Be cheerful. Strive to be happy.
+            </p>
+        </section>
+
+        <footer>
+            <span class="status-dot"></span> 
+            System Node: Active &bull; <span id="year"></span>
+        </footer>
+    </article>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

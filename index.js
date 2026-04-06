@@ -1,13 +1,15 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const path = require("path");
+const app = express();
+const port = 8080;
 
-const PORT = 8080
+// ensure static images are serverd
+app.use(express.static("images"));
 
-app.get('/', (req, res) => {
-  res.send('<h1>This is nice!</h1>')
-})
+app.get("/", (request, response) => {
+  response.status(200).sendFile(path.join(__dirname, "index.html"));
+});
 
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+app.listen(port, () => {
+  console.log(`server runnning on http://localhost:${port}`);
+});
